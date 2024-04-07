@@ -61,6 +61,7 @@ mergeSort() {
 
 
           }, (i+1)*10);
+
       }, i*10);
 
     }
@@ -92,7 +93,7 @@ bucketSort() {}
         <>
         {array.map((value, idx)=> (
             <div 
-            className="array-bar"
+            className='array-bar'
             key={idx}
             style={{height: `${value}px`}}>
 

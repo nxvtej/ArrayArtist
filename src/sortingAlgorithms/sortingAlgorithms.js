@@ -23,6 +23,7 @@
 
 // alright merge sorts is difficult cause i need to store original index
 // before we go and compare them 
+
 export function mergeSort(array) {
     const animations =[];
     if(array.length <= 1) return array;
@@ -80,7 +81,7 @@ function doMerge(
         const animation = {};
         animation.comparison = [i, j];
         if(auxilaryArray[i] <= auxilaryArray[j]){
-            animation.swap[k,  i];
+            animation.swap = [k,  i];
             mainArray[k++]=auxilaryArray[i++];
         } else {
             animation.swap = [k, j];
