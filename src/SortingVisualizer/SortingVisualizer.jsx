@@ -25,7 +25,9 @@ export default class SortingVisualizer extends React.Component {
   }
 mergeSort() {
     // generating copy of that aray to sort using inbuilt funciton
-    const javaScriptSortedArray = this.state.array.slice().sort();
+    const javaScriptSortedArray = this.state.array
+    .slice()
+    .sort((a,b)=>a-b);
     const sortedArray = sortingAlgorithms.mergeSort(this.state.array);
 
 
