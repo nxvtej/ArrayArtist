@@ -27,6 +27,17 @@ quickSort() {}
 heapSort() {}
 bubbleSort() {}
 
+// another techniques
+selectionSort() {}
+insertionSort() {}
+countingSort() {}
+radixSort() {}
+bucketSort() {}
+shellSort() {}
+combSort() {}
+cycleSort() {}
+// end
+
   render() {
     const {array} = this.state;
 
@@ -46,7 +57,16 @@ bubbleSort() {}
         <button onClick={() => this.quickSort()}>Quick Sort</button>
         <button onClick={() => this.heapSort()}>Heap Sort</button>
         <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
-
+{/* do this by userlsef */}
+        <button onClick={() => this.selectionSort()}>Selection Sort</button>
+        <button onClick={() => this.insertionSort()}>Insertion Sort</button>
+        <button onClick={() => this.countingSort()}>Counting Sort</button>
+        <button onClick={() => this.radixSort()}>Radix Sort</button>
+        <button onClick={() => this.bucketSort()}>Bucket Sort</button>
+        <button onClick={() => this.shellSort()}>Shell Sort</button>
+        <button onClick={() => this.combSort()}>Comb Sort</button>
+        <button onClick={() => this.cycleSort()}>Cycle Sort</button>
+{/* uptothis */}
         
         </>
     );
