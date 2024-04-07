@@ -47,24 +47,41 @@ testSortingAlgorithms() {
 mergeSort() {
     // generating copy of that aray to sort using inbuilt funciton
     const animations = sortingAlgorithms.mergeSort(this.state.array);
-    for(let i=0;i<animations.length;i++){
-      const {comparison, swap} = animations[i];
+    const newAnimations = [];
+
+    for(const animation of animations) {
+      newAnimations.push(animation.comparison);
+      newAnimations.push(animation.comparison);
+      newAnimations.push(animation.swap);
+    }
+
+    for(let i=0;i<newAnimations.length;i++){
+      const arrayBars = document.getElementsByClassName('array-bar');
+
+     
+     const isColorChange = i%3 !==2;
+
+     if(isColorChange){
+      const [barOneIdx, barTwoIdx]=newAnimations[i];
+     const barOneStyle = arrayBars[barOneIdx].style;
+     const barTwoStyle = arrayBars[barTwoIdx].style;
+     
+      const color = i%3 === 0 ? 'red' : 'blue';
+
+      //  const {comparison, swap} = animations[i];
 
       setTimeout(() => {
-        const arrayBars = document.getElementsByClassName('array-bar');
-        arrayBars[comparison[1]].style.backgroundColor = 'red';
-        arrayBars[comparison[0]].style.backgroundColor = 'red';
-
-          setTimeout(() => {
-            arrayBars[comparison[1]].style.backgroundColor = 'blue';
-            arrayBars[comparison[0]].style.backgroundColor = 'blue';
-
-
-          }, (i+1)*10);
-
+barOneStyle.backgroundColor = color;
+barTwoStyle.backgroundColor =  color;
+          }, i*10);
+    } else {
+      setTimeout(() => {
+        // const tempHeight = barOneStyle.height;
+        const [barOneIdx, newHeight] = newAnimations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        barOneStyle.height = `${newHeight}px`;
       }, i*10);
-
-    }
+    }}
     // const javaScriptSortedArray = this.state.array
     // .slice()
     // .sort((a,b)=>a-b);
@@ -74,6 +91,8 @@ mergeSort() {
     // // also printing if theyare eqiual or not into console
     // console.log(arrayAreEqual(javaScriptSortedArray, sortedArray));
 } 
+
+
 quickSort() {}
 heapSort() {}
 bubbleSort() {}
@@ -92,7 +111,7 @@ bucketSort() {}
     return (
         <>
         {array.map((value, idx)=> (
-            <div 
+            <div  
             className='array-bar'
             key={idx}
             style={{height: `${value}px`}}>
