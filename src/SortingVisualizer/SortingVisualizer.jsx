@@ -17,7 +17,7 @@ export default class SortingVisualizer extends React.Component {
   resetArray(){
     const array = [];
     
-    for(let i =0; i <100; i++){
+    for(let i =0; i <310; i++){
         array.push(randomIntFromIntervel(5,1000));
     }
     this.setState({array});
@@ -29,8 +29,11 @@ export default class SortingVisualizer extends React.Component {
     return (
         <>
         {array.map((value, idx)=> (
-            <div className="array-bar" key={idx}>
-                {value}
+            <div 
+            className="array-bar"
+            key={idx}
+            style={{height: `${value}px`}}>
+
             </div>
         ))}
         </>
@@ -38,6 +41,8 @@ export default class SortingVisualizer extends React.Component {
   }
 }
 
+
+// got this from stack overflow
 function randomIntFromIntervel(min, max){
     //min and max included
     
