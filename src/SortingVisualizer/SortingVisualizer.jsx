@@ -46,14 +46,32 @@ testSortingAlgorithms() {
 
 mergeSort() {
     // generating copy of that aray to sort using inbuilt funciton
-    const javaScriptSortedArray = this.state.array
-    .slice()
-    .sort((a,b)=>a-b);
-    const sortedArray = sortingAlgorithms.mergeSort(this.state.array);
+    const animations = sortingAlgorithms.mergeSort(this.state.array);
+    for(let i=0;i<animations.length;i++){
+      const {comparison, swap} = animations[i];
+
+      setTimeout(() => {
+        const arrayBars = document.getElementsByClassName('array-bar');
+        arrayBars[comparison[1]].style.backgroundColor = 'red';
+        arrayBars[comparison[0]].style.backgroundColor = 'red';
+
+          setTimeout(() => {
+            arrayBars[comparison[1]].style.backgroundColor = 'blue';
+            arrayBars[comparison[0]].style.backgroundColor = 'blue';
 
 
-    // also printing if theyare eqiual or not into console
-    console.log(arrayAreEqual(javaScriptSortedArray, sortedArray));
+          }, (i+1)*10);
+      }, i*10);
+
+    }
+    // const javaScriptSortedArray = this.state.array
+    // .slice()
+    // .sort((a,b)=>a-b);
+    // const sortedArray = sortingAlgorithms.mergeSort(this.state.array);
+
+
+    // // also printing if theyare eqiual or not into console
+    // console.log(arrayAreEqual(javaScriptSortedArray, sortedArray));
 } 
 quickSort() {}
 heapSort() {}
@@ -62,12 +80,9 @@ bubbleSort() {}
 // another techniques
 selectionSort() {}
 insertionSort() {}
-countingSort() {}
 radixSort() {}
 bucketSort() {}
-shellSort() {}
-combSort() {}
-cycleSort() {}
+
 // end
 
   render() {
@@ -93,12 +108,9 @@ cycleSort() {}
 {/* do this by userlsef */}
         <button onClick={() => this.selectionSort()}>Selection Sort</button>
         <button onClick={() => this.insertionSort()}>Insertion Sort</button>
-        <button onClick={() => this.countingSort()}>Counting Sort</button>
         <button onClick={() => this.radixSort()}>Radix Sort</button>
         <button onClick={() => this.bucketSort()}>Bucket Sort</button>
-        <button onClick={() => this.shellSort()}>Shell Sort</button>
-        <button onClick={() => this.combSort()}>Comb Sort</button>
-        <button onClick={() => this.cycleSort()}>Cycle Sort</button>
+
 {/* uptothis */}
         
         </>
